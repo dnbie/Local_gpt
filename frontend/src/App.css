@@ -1,0 +1,288 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0f1117;
+  color: white;
+}
+
+button,
+textarea {
+  font-family: inherit;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  width: 260px;
+  background: #151821;
+  border-right: 1px solid #292d38;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.logo h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.logo span {
+  color: #8f96a3;
+  font-size: 12px;
+}
+
+.new-chat {
+  margin-top: 25px;
+  padding: 12px;
+  border: 1px solid #353a48;
+  border-radius: 9px;
+  background: #191d27;
+  color: white;
+  cursor: pointer;
+}
+
+.new-chat:hover {
+  background: #242936;
+}
+
+.chat-list {
+  margin-top: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.chat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #c8ccd5;
+}
+
+.chat-item:hover {
+  background: #1f2430;
+}
+
+.chat-item.active {
+  background: #252b38;
+}
+
+.chat-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.delete-chat {
+  border: none;
+  background: transparent;
+  color: #8f96a3;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.delete-chat:hover {
+  color: #ff6b6b;
+}
+
+.sidebar-footer {
+  color: #6ee7b7;
+  font-size: 12px;
+  padding-top: 15px;
+}
+
+/* MAIN */
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.header {
+  height: 70px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #292d38;
+  background: #151821;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.header p {
+  margin: 4px 0 0;
+  color: #8f96a3;
+  font-size: 12px;
+}
+
+.model {
+  color: #6ee7b7;
+  font-size: 14px;
+}
+
+/* CHAT */
+
+.chat-container {
+  flex: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 25px 150px;
+  overflow-y: auto;
+}
+
+.welcome {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.welcome h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.welcome p {
+  color: #8f96a3;
+}
+
+.suggestions {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.suggestions button {
+  padding: 10px 15px;
+  border: 1px solid #353a48;
+  border-radius: 8px;
+  background: #191d27;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.suggestions button:hover {
+  border-color: #8b5cf6;
+}
+
+/* MESSAGES */
+
+.message-row {
+  margin-bottom: 28px;
+}
+
+.message-label {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.message-row.user .message-label {
+  color: #60a5fa;
+}
+
+.message-row.assistant .message-label {
+  color: #a78bfa;
+}
+
+.message-bubble {
+  padding: 18px;
+  border-radius: 12px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.message-row.user .message-bubble {
+  background: #1d2635;
+}
+
+.message-row.assistant .message-bubble {
+  background: #191d27;
+  border: 1px solid #292d38;
+}
+
+/* INPUT */
+
+.input-area {
+  position: fixed;
+  bottom: 0;
+  left: 260px;
+  right: 0;
+  padding: 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  background: linear-gradient(
+    transparent,
+    #0f1117 25%
+  );
+}
+
+.input-area textarea {
+  width: min(750px, 75%);
+  min-height: 55px;
+  max-height: 150px;
+  resize: vertical;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #353a48;
+  background: #191d27;
+  color: white;
+  outline: none;
+  font-size: 15px;
+}
+
+.input-area textarea:focus {
+  border-color: #8b5cf6;
+}
+
+.input-area button {
+  width: 100px;
+  border: none;
+  border-radius: 12px;
+  background: #8b5cf6;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.input-area button:hover {
+  background: #7c3aed;
+}
+
+.input-area button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .sidebar {
+    display: none;
+  }
+
+  .input-area {
+    left: 0;
+  }
+}
